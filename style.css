@@ -318,7 +318,7 @@ nav {
 
 .container ul.list {
     text-align: left;
-    list-style: none;
+    list-style: center;
     padding: 0;
     margin: 20px auto;
     max-width: 400px;
