@@ -47,6 +47,15 @@ nav ul li a:hover {
     color: #ffd700; /* accent lumineux au hover */
 }
 
+nav {
+  overflow-x: auto;
+}
+
+nav ul {
+  white-space: nowrap;
+}
+
+
 /* ================= CONTAINER ================= */
 .container {
     max-width: 900px;
