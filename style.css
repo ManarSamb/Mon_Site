@@ -1,32 +1,51 @@
-/* ================= BODY ================= */
+/* ================= BODY & BASE ================= */
 body {
     margin: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
-    background: linear-gradient(135deg, #eef2f3, #ffffff); /* plus neutre et masculin */
+    background: linear-gradient(135deg, #eef2f3, #ffffff);
     color: #1f2933;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    margin: 10px 0 5px;
+    font-size: 2.2em;
+}
+
+h2 {
+    margin-top: 30px;
+    color: #0d47a1;
 }
 
 /* ================= NAV ================= */
 nav {
-    /* On garde votre joli dégradé */
     background: linear-gradient(270deg, #0d47a1, #1976d2, #0d47a1);
     background-size: 600% 600%;
     animation: navGradient 20s ease infinite;
-    position: relative; /* Important pour le positionnement mobile */
+    position: relative;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+@keyframes navGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    display: flex; /* Aligne le logo et le menu sur la même ligne */
-    justify-content: space-between; /* Espace entre logo et menu */
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     min-height: 60px;
 }
 
-/* Style du Logo */
 .logo {
     color: white;
     font-weight: bold;
@@ -34,27 +53,23 @@ nav {
     z-index: 10;
 }
 
-/* Cacher la case à cocher (la magie du hack) */
-#menu-toggle {
-    display: none;
-}
+/* Hack du Menu Burger */
+#menu-toggle { display: none; }
 
-/* Style du bouton Hamburger (les 3 barres) */
 .burger {
-    display: none; /* Caché sur PC */
+    display: none;
     font-size: 24px;
     color: white;
     cursor: pointer;
     user-select: none;
 }
 
-/* La liste des liens (Menu) */
 .nav-menu {
-    list-style: none; /* Enlève les puces noires */
+    list-style: none;
     margin: 0;
     padding: 0;
-    display: flex; /* Met les liens à l'horizontale */
-    gap: 20px; /* Espace entre les liens */
+    display: flex;
+    gap: 20px;
 }
 
 .nav-menu li a {
@@ -66,51 +81,8 @@ nav {
 }
 
 .nav-menu li a:hover {
-    color: #ffd700; /* Jaune or */
-    text-decoration: none; /* Plus joli sans soulignement sur le bouton */
+    color: #ffd700;
 }
-
-/* ================= MOBILE (RESPONSIVE) ================= */
-@media (max-width: 768px) {
-    
-    /* Montrer le bouton hamburger sur mobile */
-    .burger {
-        display: block; 
-    }
-
-    /* Transformer le menu horizontal en menu vertical caché */
-    .nav-menu {
-        position: absolute;
-        top: 100%; /* Juste en dessous de la barre */
-        left: 0;
-        right: 0;
-        background: #0d47a1; /* Fond bleu uni pour lisibilité */
-        flex-direction: column; /* Vertical */
-        align-items: center;
-        gap: 0;
-        overflow: hidden;
-        max-height: 0; /* Caché par défaut */
-        transition: max-height 0.3s ease-in-out;
-        z-index: 100;
-    }
-
-    .nav-menu li {
-        width: 100%;
-        text-align: center;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .nav-menu li a {
-        display: block;
-        padding: 15px;
-    }
-
-    /* LA MAGIE : Quand la checkbox est cochée, on ouvre le menu */
-    #menu-toggle:checked ~ .nav-menu {
-        max-height: 400px; /* Assez grand pour tout montrer */
-    }
-}
-
 
 /* ================= CONTAINER ================= */
 .container {
@@ -120,8 +92,6 @@ nav {
     border-radius: 24px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.12);
     color: #1f3133;
-
-    /* Gradient animé plus masculin */
     background: linear-gradient(135deg, #d9dcde, #d9dcde, #d9dcde);
     background-size: 400% 400%;
     animation: gradientShift 25s ease infinite;
@@ -137,6 +107,7 @@ nav {
 .hero {
     text-align: center;
     padding: 20px;
+    min-height: auto;
 }
 
 .photo {
@@ -147,11 +118,6 @@ nav {
     border: 6px solid #585a5c; 
     margin-bottom: 15px;
     background-color: white;
-}
-
-h1 {
-    margin: 10px 0 5px;
-    font-size: 2.2em;
 }
 
 .subtitle {
@@ -171,7 +137,7 @@ h1 {
 /* ================= BOUTONS ================= */
 .buttons {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* Centré horizontalement par défaut */
     flex-wrap: wrap;
     gap: 15px;
 }
@@ -191,7 +157,7 @@ h1 {
     box-shadow: 0 10px 25px rgba(13,71,161,0.3);
 }
 
-/* ================= PALMARÈS ================= */
+/* ================= BADGES & SKILLS (Nouveau) ================= */
 .palmares {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -214,7 +180,6 @@ h1 {
     font-size: 0.9em;
 }
 
-/* Couleurs badges masculines */
 .gold { background-color: #fff9c4; border-left: 6px solid #fbc02d; }
 .silver { background-color: #cfd8dc; border-left: 6px solid #607d8b; }
 .bronze { background-color: #ffe0b2; border-left: 6px solid #ef6c00; }
@@ -224,7 +189,26 @@ h1 {
     box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
-/* ================= SECTIONS ================= */
+/* Style pour la liste des compétences (Boutons bleus) */
+.liste-skills {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.liste-skills li {
+    background-color: #e3f2fd;
+    color: #0d47a1;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* ================= SECTIONS & FORMULAIRES ================= */
 section {
     margin-top: 40px;
     text-align: center;
@@ -233,7 +217,6 @@ section {
 
 section:hover { transform: translateY(-3px); }
 
-/* ================= HOBBIES ================= */
 .hobby {
     margin-top: 25px;
     text-align: left;
@@ -244,7 +227,6 @@ section:hover { transform: translateY(-3px); }
     margin-bottom: 5px;
 }
 
-/* ================= FORMULAIRES ================= */
 .form {
     margin-top: 20px;
     display: flex;
@@ -274,7 +256,6 @@ section:hover { transform: translateY(-3px); }
 
 .form button:hover { box-shadow: 0 8px 20px rgba(13,71,161,0.3); }
 
-/* ================= CITATION ================= */
 .quote {
     margin-top: 40px;
     font-style: italic;
@@ -282,55 +263,55 @@ section:hover { transform: translateY(-3px); }
     text-align: center;
 }
 
+/* ================= RESPONSIVE (MOBILE) ================= */
+@media (max-width: 768px) {
+    
+    /* 1. Menu Burger */
+    .burger { display: block; }
 
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #0d47a1;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease-in-out;
+        z-index: 100;
+    }
 
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
 
-  .buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
+    .nav-menu li a {
+        display: block;
+        padding: 15px;
+    }
 
-  .container {
-    padding: 15px;
-    text-align: center;
-  }
+    #menu-toggle:checked ~ .nav-menu {
+        max-height: 400px;
+    }
 
-  img {
-    max-width: 100%;
-    height: auto;
-  }
+    /* 2. Ajustements Layout Mobile */
+    .container {
+        padding: 20px; /* Moins de padding sur mobile */
+        margin: 20px auto;
+    }
 
-  .hero {
-    min-height: auto;
-  }
-
-
-nav::-webkit-scrollbar {
-  display: none;
-}
-
-
-h2 {
-  margin-top: 30px;
-  color: #0d47a1;
-}
-
-
-.liste-skills {
-    list-style: none;
-    padding: 0;
-    display: flex;             /* Met les éléments côte à côte */
-    justify-content: center;   /* Centre le tout */
-    gap: 15px;                 /* Espace entre les badges */
-    flex-wrap: wrap;           /* Permet de passer à la ligne si besoin */
-}
-
-.liste-skills li {
-    background-color: #e3f2fd; /* Bleu très clair */
-    color: #0d47a1;            /* Bleu foncé */
-    padding: 8px 16px;
-    border-radius: 20px;       /* Bords arrondis */
-    font-weight: 600;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    .buttons {
+        flex-direction: column; /* Boutons verticaux sur mobile uniquement */
+    }
+    
+    .btn {
+        width: 100%; /* Boutons pleine largeur sur mobile */
+        text-align: center;
+        box-sizing: border-box;
+    }
 }
