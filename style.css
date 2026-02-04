@@ -8,34 +8,108 @@ body {
 
 /* ================= NAV ================= */
 nav {
-    padding: 12px 0;
-    border-bottom: 2px solid #ccc;
-    /* Dégradé dynamique masculin (bleu → turquoise → bleu foncé) */
+    /* On garde votre joli dégradé */
     background: linear-gradient(270deg, #0d47a1, #1976d2, #0d47a1);
     background-size: 600% 600%;
     animation: navGradient 20s ease infinite;
+    position: relative; /* Important pour le positionnement mobile */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-@keyframes navGradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex; /* Aligne le logo et le menu sur la même ligne */
+    justify-content: space-between; /* Espace entre logo et menu */
+    align-items: center;
+    min-height: 60px;
 }
 
+/* Style du Logo */
+.logo {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    z-index: 10;
+}
 
+/* Cacher la case à cocher (la magie du hack) */
+#menu-toggle {
+    display: none;
+}
 
-nav ul li a {
+/* Style du bouton Hamburger (les 3 barres) */
+.burger {
+    display: none; /* Caché sur PC */
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* La liste des liens (Menu) */
+.nav-menu {
+    list-style: none; /* Enlève les puces noires */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Met les liens à l'horizontale */
+    gap: 20px; /* Espace entre les liens */
+}
+
+.nav-menu li a {
     color: white;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s;
+    font-size: 1em;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
-    color: #ffd700; /* accent lumineux au hover */
+.nav-menu li a:hover {
+    color: #ffd700; /* Jaune or */
+    text-decoration: none; /* Plus joli sans soulignement sur le bouton */
 }
 
+/* ================= MOBILE (RESPONSIVE) ================= */
+@media (max-width: 768px) {
+    
+    /* Montrer le bouton hamburger sur mobile */
+    .burger {
+        display: block; 
+    }
+
+    /* Transformer le menu horizontal en menu vertical caché */
+    .nav-menu {
+        position: absolute;
+        top: 100%; /* Juste en dessous de la barre */
+        left: 0;
+        right: 0;
+        background: #0d47a1; /* Fond bleu uni pour lisibilité */
+        flex-direction: column; /* Vertical */
+        align-items: center;
+        gap: 0;
+        overflow: hidden;
+        max-height: 0; /* Caché par défaut */
+        transition: max-height 0.3s ease-in-out;
+        z-index: 100;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .nav-menu li a {
+        display: block;
+        padding: 15px;
+    }
+
+    /* LA MAGIE : Quand la checkbox est cochée, on ouvre le menu */
+    #menu-toggle:checked ~ .nav-menu {
+        max-height: 400px; /* Assez grand pour tout montrer */
+    }
+}
 
 
 /* ================= CONTAINER ================= */
