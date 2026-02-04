@@ -314,17 +314,3 @@ nav {
   }
 }
 
-
-
-.container ul.list {
-    text-align: center;
-    list-style: center;
-    padding: 0;
-    margin: 20px auto;
-    max-width: 400px;
-}
-.container ul.list li::before {
-    content: "✔ ";
-    color: #0d47a1;
-    font-weight: bold;
-}
