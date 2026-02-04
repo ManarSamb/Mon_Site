@@ -216,3 +216,33 @@ section:hover { transform: translateY(-3px); }
     color: #353e42;
     text-align: center;
 }
+
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .container {
+    padding: 15px;
+    text-align: center;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+}
