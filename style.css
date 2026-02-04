@@ -37,19 +37,6 @@ nav ul li a:hover {
 }
 
 
-.list {
-    list-style: none;
-    padding: 0;
-    margin: 20px auto;
-    max-width: 400px;
-    text-align: left;
-}
-
-.list li::before {
-    content: "✔ ";
-    color: #0d47a1;
-    font-weight: bold;
-}
 
 /* ================= CONTAINER ================= */
 .container {
@@ -327,3 +314,17 @@ nav {
   }
 }
 
+
+
+.container ul.list {
+    text-align: left;
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+    max-width: 400px;
+}
+.container ul.list li::before {
+    content: "✔ ";
+    color: #0d47a1;
+    font-weight: bold;
+}
